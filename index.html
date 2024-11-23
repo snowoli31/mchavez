@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños Ingeniera Chavez</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-image: url('https://cdn.pixabay.com/photo/2023/06/10/05/36/civil-engineering-8053197_1280.png');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            color: white;
+        }
+
+        .message {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro para mejorar la legibilidad */
+            padding: 30px;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .message h1 {
+            font-size: 3em;
+            color: #00bfff; /* Celeste burbuja */
+            margin-bottom: 10px;
+        }
+
+        .message p {
+            font-size: 1.4em;
+            line-height: 1.6;
+            margin-top: 10px;
+            font-style: italic;
+            color: #f1f1f1;
+        }
+
+        .icon {
+            font-size: 3em;
+            color: #ffc107;
+            margin-top: 10px;
+        }
+
+        .item {
+            position: absolute;
+            top: -50px;
+            animation: fall 5s ease-in forwards;
+            font-size: 3em;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        <h1>¡Feliz Cumpleaños, Milagros👷‍♀️! 🎉</h1>
+        <p>"Que cada estructura que diseñes sea tan sólida como tus sueños y que cada proyecto que emprendas te acerque más a tu éxito."</p>
+    </div>
+
+    <!-- Reproductor de audio -->
+    <audio id="myAudio" autoplay muted>
+        <source src="audio/hp.mp3" type="audio/mp3">
+    </audio>
+    
+    <script>
+        window.onload = function() {
+            var audio = document.getElementById("myAudio");
+            audio.muted = false;  // Desactivar el silencio después de cargar
+            audio.play();
+        };
+    </script>
+    
+    <script>
+        window.onload = function() {
+            document.getElementById("myAudio").play();
+        };
+    </script>
+    <!-- Imagen PNG -->
+    <img src="pngwing.com.png" alt="Imagen burbuja de las chicas super poderosas" style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 100px;">
+
+    <script>
+        const icons = ['🏗️', '📐', '🛠️', '🧱', '🚧', '🚦'];  // Íconos de ingeniería civil
+
+        document.body.addEventListener('click', function(event) {
+            const randomIcon = icons[Math.floor(Math.random() * icons.length)];  // Selecciona un ícono aleatorio
+            const item = document.createElement('div');
+            item.classList.add('item');
+            item.innerHTML = randomIcon;
+            item.style.left = `${event.clientX - 25}px`;  // Posiciona el ícono donde se hace clic
+            item.style.animationDuration = `${Math.random() * 3 + 3}s`;  // Duración aleatoria de la animación
+            document.body.appendChild(item);
+
+            // Eliminar el ícono después de la animación
+            setTimeout(() => {
+                item.remove();
+            }, 5000);  // Elimina después de 5 segundos
+        });
+    </script>
+</body>
+</html>
